@@ -22,13 +22,13 @@
     function tablePush(block)
     {
         var name = block.user.name;
-        $('#i').append('<tr id="user-' + name + '"><td>' + block.updated_at.replace('T', ' ').replace('Z', ' UTC') + '</td><td><a href="http://www.twitch.tv/' + name + '/profile" target="_blank">' + name + '</a></td><td><a href="javascript:void(0)" id="remove-ignore-' + num + '">X</a></td></tr>');
+        $('#i').append('<tr id="user-' + name + '"><td>' + (new Date(block.updated_at)).toLocaleString() + '</td><td><a href="http://www.twitch.tv/' + name + '/profile" target="_blank">' + name + '</a></td><td><a href="javascript:void(0)" id="remove-ignore-' + num + '">X</a></td></tr>');
         $('#remove-ignore-' + num).click(function () {
-            removeIgnore(name, 'DELETE');
+            modifyIgnore(name, 'DELETE');
         });
         ++num;
     }
-    function removeIgnore(name, add) {
+    function modifyIgnore(name, add) {
         Twitch.api({ method: ('users/' + user + '/blocks/' + name), params: { _method: add }, verb: add }, function (error, list) {
             if (error) {
                 if (!(add == 'DELETE' && error.status == 404)) {
@@ -46,7 +46,12 @@
             }
             else if (add == 'PUT') {
                 console.log('Added ' + name + ' to your ignore list');
-                tablePush(name);
+                tablePush({
+                    updated_at: (new Date()).toISOString(),
+                    user: {
+                        name: name
+                    }
+                });
                 $('#adduser').val('');
             }
         });
@@ -74,7 +79,7 @@
             $('#about').slideToggle(500);
         });
         $('#adduser-button').click(function () {
-            removeIgnore($('#adduser').val(), 'PUT');
+            modifyIgnore($('#adduser').val(), 'PUT');
         });
     });
 })();
