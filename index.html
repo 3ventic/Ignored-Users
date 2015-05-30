@@ -1,40 +1,42 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Twitch Ignore List</title>
-		<meta charset="utf-8"/>
-		<link rel="shortcut icon" href="/favicon.ico"/>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Twitch Ignore List</title>
+        <meta name="keywords" content="twitch, ignore, list, block, manage, modify" />
+        <meta name="description" content="Manage your list of ignored or blocked Twitch users." />
+        <link rel="shortcut icon" href="/favicon.ico"/>
         <link rel="stylesheet" href="style.css"/>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="twitch.min.js"></script>
-		<script src="ignored.js"></script>
-	</head>
-	<body>
-		<div id="content">
-			<div class="box head">
-				<h1>
-					Ignored Twitch Users
-				</h1>
-			</div>
-			<div class="box">
-				<div id="load">
-					<p>
-						<img src="http://ttv-api.s3.amazonaws.com/assets/connect_dark.png" class="twitch-connect" href="#" />
-					</p>
-				</div>
-			</div>
-			<div class="box initially_hidden">
-				<h2>Ignore User</h2>
-				<input type="text" id="adduser"/><button id="adduser-button">Ignore</button>
-			</div>
-			<div class="box" id="about">
-				<p>
-					This site uses <a href="https://github.com/justintv/Twitch-API/blob/master/authentication.md#implicit-grant-flow">Implicit Grant Flow</a> in a way that all of your account information is purely handled between your browser and the Twitch API servers.
-				</p>
-			</div>
-			<div class="box head">
-				<p class="s">2014-2015 &copy; <a href="http://3v.fi" target="_blank">3ventic</a> - <a href="javascript:void(0)" id="about-btn">about</a> - not affiliated with Twitch - <a href="https://github.com/3ventic/Twitch-Ignored-Users" target="_blank">View source on github</a></p>
-			</div>
-		</div>
-	</body>
+        <script src="ignored.js"></script>
+    </head>
+    <body>
+        <div id="content">
+            <div class="box head">
+                <h1>
+                    Ignored Twitch Users
+                </h1>
+            </div>
+            <div class="box">
+                <div id="load">
+                    <p>
+                        <img src="http://ttv-api.s3.amazonaws.com/assets/connect_dark.png" class="twitch-connect" href="#" />
+                    </p>
+                </div>
+            </div>
+            <div class="box initially_hidden">
+                <h2>Ignore User</h2>
+                <input type="text" id="adduser"/><button id="adduser-button">Ignore</button>
+            </div>
+            <div class="box" id="about">
+                <p>
+                    This page allows you to see and manage the users you have ignored or blocked on Twitch. This site uses <a href="https://github.com/justintv/Twitch-API/blob/master/authentication.md#implicit-grant-flow" rel="external" target="_blank">Implicit Grant Flow</a> in a way that all of your account information is purely handled between your browser and the Twitch API servers.
+                </p>
+            </div>
+            <div class="box head">
+                <p class="s">2014-2015 &copy; <a href="http://3v.fi" target="_blank">3ventic</a> - <a href="javascript:void(0)" id="about-btn">about</a> - not affiliated with Twitch - <a href="https://github.com/3ventic/Twitch-Ignored-Users" rel="external" target="_blank">View source on github</a></p>
+            </div>
+        </div>
+    </body>
 </html>
