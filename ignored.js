@@ -10,7 +10,7 @@
 
     function getIgnoredUsers()
     {
-        Twitch.api({ method: ('users/' + user + '/blocks'), params: { limit: 100, offset: offset } }, function (error, list)
+        Twitch.api({ method: ('users/' + user + '/blocks'), params: { limit: 500, offset: offset } }, function (error, list)
         {
             fillTable(list.blocks);
         });
@@ -25,9 +25,9 @@
         {
             tablePush(blocks[i]);
         }
-        if (length == 100)
+        if (length == 500)
         {
-            offset += 100;
+            offset += 500;
             getIgnoredUsers();
         }
     }
