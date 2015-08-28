@@ -37,7 +37,8 @@
     function tablePush(block)
     {
         var name = block.user.name;
-        $('#i').append('<tr id="user-' + name + '"><td>' + (new Date(block.updated_at)).toLocaleString() + '</td><td><a href="http://www.twitch.tv/' + name + '/profile" target="_blank">' + name + '</a></td><td><a href="javascript:void(0)" id="remove-ignore-' + num + '">X</a></td></tr>');
+        var datestring = block.updated_at === "1970-01-01T00:00:00Z" ? "unknown date (long ago)" : (new Date(block.updated_at)).toLocaleString();
+        $('#i').append('<tr id="user-' + name + '"><td>' + datestring + '</td><td><a href="http://www.twitch.tv/' + name + '/profile" target="_blank">' + name + '</a></td><td><a href="javascript:void(0)" id="remove-ignore-' + num + '">X</a></td></tr>');
         $('#remove-ignore-' + num).click(function ()
         {
             modifyIgnore(name, 'DELETE');
