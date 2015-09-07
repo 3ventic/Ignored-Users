@@ -93,9 +93,9 @@
             {
                 $('.twitch-connect').hide();
                 $('.initially_hidden').css('display', 'block');
-                Twitch.api({ method: 'user' }, function (error, list)
+                Twitch.api({ method: '' }, function (error, list)
                 {
-                    user = list.name;
+                    user = list.token.user_name;
                     $('#load').html(tableStart + tableEnd);
                     getIgnoredUsers();
                     window.location.hash = "";
@@ -104,7 +104,7 @@
             $('.twitch-connect').click(function ()
             {
                 Twitch.login({
-                    scope: ['user_read', 'user_blocks_read', 'user_blocks_edit']
+                    scope: ['user_blocks_read', 'user_blocks_edit']
                 });
             });
         });
